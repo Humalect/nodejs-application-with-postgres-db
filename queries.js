@@ -1,5 +1,7 @@
 const Pool = require('pg').Pool
 
+require('dotenv').config()
+
 console.log({user:process.env.POSTGRES_USER});
 
 console.log({passwprd:process.env.POSTGRES_PASSWORD});
@@ -13,7 +15,6 @@ const pool = new Pool({
   password: process.env.POSTGRES_PASSWORD,
   port: 5432,
 })
-
 
 
 const { Client } = require('pg');

@@ -1,16 +1,27 @@
 const Pool = require('pg').Pool
+
+console.log({user:process.env.POSTGRES_USER});
+
+console.log({passwprd:process.env.POSTGRES_PASSWORD});
+
+console.log({host:process.env.HOST});
+
 const pool = new Pool({
   user: process.env.POSTGRES_USER,
-  host: '10.0.250.150',
+  host: process.env.HOST,
   database: 'api',
   password: process.env.POSTGRES_PASSWORD,
   port: 5432,
 })
 
 
+
 const { Client } = require('pg');
 
-const connectionString = 'postgresql://me:password@localhost:5432/api';
+const connectionString = `postgresql://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@${process.env.HOST}:5432/api`;
+
+console.log({connectionString});
+
 
 const client = new Client({ connectionString });
 client.connect();

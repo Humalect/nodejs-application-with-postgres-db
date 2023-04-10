@@ -1,0 +1,18 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    container_name: psql_db
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+
+  node:
+    container_name: node_app
+    image: node:14
+    restart: always
+    ports:
+      - 3000:3000

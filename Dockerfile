@@ -1,13 +1,3 @@
-# FROM postgres
-
-# ENV POSTGRES_PASSWORD password
-
-# EXPOSE 5432
-
-# COPY seed.sql /docker-entrypoint-initdb.d/
-
-
-
 FROM node:14
 
 # Create app directory

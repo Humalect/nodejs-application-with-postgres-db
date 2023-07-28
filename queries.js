@@ -25,6 +25,11 @@ console.log({connectionString});
 
 
 const client = new Client({ connectionString });
+
+
+  
+(async () => {  
+  try {  
 client.connect();
 
 client.query('CREATE ROLE me WITH LOGIN PASSWORD \'password\';', (err, res) => {
@@ -120,8 +125,6 @@ const getUsers = (request, response) => {
       response.status(200).send(`User deleted with ID: ${id}`)
     })
   }
-
-
   module.exports = {
     getUsers,
     getUserById,
@@ -129,3 +132,10 @@ const getUsers = (request, response) => {
     updateUser,
     deleteUser,
   }
+} catch (err) {  
+  console.error(err);  
+} finally {  
+  await client.end();  
+}  
+})();  
+

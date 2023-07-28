@@ -19,7 +19,7 @@ const pool = new Pool({
 
 const { Client } = require('pg');
 
-const connectionString = `postgresql://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@${process.env.HOST}:5432/api`;
+const connectionString = `postgres://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@${process.env.HOST}:5432/api`;
 
 console.log({connectionString});
 
